@@ -27,7 +27,24 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+
+    // adds event listeners to all the answer elements. so user can select an answer
+  for (const answerElement of answersListElement.children) {
+    answerElement.addEventListener('click', () => {
+      selectAnswer(answerElement);
+    });
+  }
 };
+
+
+// add active class to selected to answer
+const selectAnswer = (selectElement) => {
+  
+  for (const answer of selectElement.parentElement.children) {
+    answer.classList.remove('active');
+  }
+  selectElement.classList.add('active');  
+}
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
