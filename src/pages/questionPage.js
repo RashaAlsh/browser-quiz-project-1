@@ -39,7 +39,7 @@ export const initQuestionPage = () => {
 
 // add active class to selected to answer
 const selectAnswer = (selectElement) => {
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  
   for (const answer of selectElement.parentElement.children) {
     answer.classList.remove('active');
   }
