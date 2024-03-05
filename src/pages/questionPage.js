@@ -6,6 +6,7 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { createScoreElement } from '../scoreView.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -14,8 +15,9 @@ export const initQuestionPage = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
   const questionElement = createQuestionElement(currentQuestion.text);
-
+  const scoreElement = createScoreElement(quizData.currentScore)
   userInterface.appendChild(questionElement);
+  userInterface.appendChild(scoreElement );
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 

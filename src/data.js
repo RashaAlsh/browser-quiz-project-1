@@ -10,8 +10,10 @@
 */
 
 export const quizData = {
+  currentScore :0 , 
   currentQuestionIndex: 0,
   // the questions in the quiz
+
   questions: [
     {
       text: 'What are the different ways to declare a JS variable?',
