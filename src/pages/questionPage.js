@@ -34,32 +34,38 @@ export const initQuestionPage = () => {
   }  
 }
 
-
-// handler (I think)
+// If I add events with arrow functions or declare functions in "addEventListener" I can not use removeEventListener and I  can't remove them later. This is because there is no reference to the function. my creating a function and passing it to the event listener, I can remove it later.
 function selectEventHandler(){
   selectAnswer(this);
 }
 
-// add active class to selected to answer
+// Answer selecting process
+// Selects the answer and shows the correct answer
 const selectAnswer = (selectElement) => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   
-  // modify the data
+  // Modify the data. there is a selected property in the question object. we want to store the selected answer there. 
+  // This is important for checking if the answer is correct later 
+  // and for showing the correct answer 
+  // and calculating the score
   currentQuestion.selected = selectElement.innerHTML.split(":")[0].trim();
   
-  // remove the click events listeners since user answered already and we showed the answer
+  // Remove the click events listeners since user answered already and we showed the answer
   for (const answerElement of selectElement.parentElement.children) {
     answerElement.removeEventListener('click', selectEventHandler);     
   }
- 
-  // if the answer is wrong, add .wrong
-  if(!answerIsCorrect(currentQuestion)){
+
+  // if the answer is correct, add 1 to the score.
+  if(answerIsCorrect(currentQuestion)){
+    quizData.currentScore++;
+  }else{
+    // if the answer is wrong, add .wrong to the selected answer
     selectElement.classList.add('wrong');
   }
 
-  // add .correct to the correct answer
-  showCorrectAnswer(currentQuestion);
-  
+  // add .correct to the correct answer.
+  // This is not in the if statement because we want to show the correct answer even if the user selected the wrong answer
+  showCorrectAnswer(currentQuestion); 
 }
 
 const answerIsCorrect = (question) => {
