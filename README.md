@@ -61,71 +61,14 @@ Some examples of online quizes that you might like:
 When you have chosen your goal, you can create tasks as issues on Github and assign them to team members.
 Tasks could look like this, using the [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) labels for prioritization
 
-- 
-
-
-The features from the example project from previous class:
-```
-- [ ]  A user can see one question at a time, stepping through the quiz
-- [ ]  A user can select an answer for each question
-- [ ]  A user can see what the correct answer is after they selected their answer.
-- [ ]  A user can see information after they selected their answer, like an explanation or a link to more information
-- [ ]  A user can see their score update in real-time as they select answers
-- [ ]  A user can enter their name
-- [ ]  A user can see their score at the end of the quiz
-- [ ]  A user can see a "Play Again" / "new game" button at the end of the quiz
-- [ ]  A user can see the progress of the quiz on progress bar
-- [ ]  A user can see a different animation for correct and incorrect answers
-- [ ]  A user can't go next without answering the question
-```
-
- - Bonus features
- ```
-- [ ]  A user can see the time spent on the quiz
-- [ ]  A user can go back to the previous question
-- [ ]  A user can skip a question ( contradictory to the previous one)
-- [ ]  A user can see the time left to complete the quiz / question
-- [ ] A user can refresh the page and still have his/her given answers available
-- [ ]  A user can "skip" the question and learn the correct answer, this forfeits the question ( contradictory to the previous one)
-
-- [ ]  bunch of animations here and there
-- [ ]  Transition between pages or question look fancy like TypeForm for example
-```
-
-
-
-
-
-
-User stories
-
-- [ ] 1 ) (must have) A user can see one question at a time, stepping through the quiz
-- [ ] 2 ) (must have) A user can select an answer for each question
-- [ ] 3 ) (must have) Change the title on each question
-- [ ] 4 ) (must have) Add a favicon
-- [ ] 5 ) (must have) A user can see what the correct answer is after they selected their answer.
-- [ ] 6 ) (must have) A user can see their score at the end of the quiz
-
-- [ ] 7 ) (should have) A user can see their score update in real-time as they select answers
-- [ ] 8 ) (should have) A user can see a "Play Again" / "new game" button at the end of the quiz
-
-- [ ] 9 ) (could have) A user can see the progress of the quiz on progress bar
-- [ ] 10 ) (could have) A user can refresh the page and still have his/her given answers available
-- [ ] 11 ) (could have)  Transition between pages or question look fancy like TypeForm for example
-- [ ] 12 ) (could have) A user can enter their name
-- [ ] 13 ) (could have) A user can see information after they selected their answer, like an explanation or a link to more information
-- [ ] 14 ) (could have) A user can see credits with animation after the quiz
-- [ ] 15 ) (could have) A user can see the time spent on the quiz
-
-
-non functionality TODO 
-- more CSS
-- made better questions etc.
-- Html stuff, like fix title, add meta tags etc
-
-
-
-
-
+- [x] (must have) A user can see one question at a time, stepping through the quiz
+- [ ] (must have) A user can select an answer for each question
+- [ ] (must have) Change the <title>
+- [ ] (must have) add a favicon
+- [ ] (should have) A user can see what the correct answer is after they selected their answer.
+- [ ] (should have) A user can see their score update in real-time as they select answers
+- [ ] (should have) A user can refresh the page and still have his/her given answers available
+- [ ] (could have) A user can "skip" the question and learn the correct answer, this forfeits the question
+- [ ] (could have) Transition between pages or question look fancy like TypeForm for example
 
 You should create tasks that fit with your goal, these tasks serve just as an example.
