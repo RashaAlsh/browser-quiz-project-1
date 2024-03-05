@@ -6,6 +6,8 @@ export const initWelcomePage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
+  document.title = "jlasknjf"
+
   const welcomeElement = createWelcomeElement();
   userInterface.appendChild(welcomeElement);
 
