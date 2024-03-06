@@ -16,7 +16,10 @@ ul {
   list-style: none;
 }
 
+.correct{
+  background-color: greenyellow;
+}
 
-.active{
-  background-color: turquoise;
+.wrong{
+  background-color: red;
 }
