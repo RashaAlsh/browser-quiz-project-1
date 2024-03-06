@@ -15,3 +15,11 @@
 ul {
   list-style: none;
 }
+
+.correct{
+  background-color: greenyellow;
+}
+
+.wrong{
+  background-color: red;
+}
