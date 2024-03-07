@@ -7,6 +7,7 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { createScoreElement } from '../views/scoreView.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -15,8 +16,11 @@ export const initQuestionPage = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
  
   const questionElement = createQuestionElement(currentQuestion.text);
-  
+
+  const scoreElement = createScoreElement(quizData.currentScore)
+
   userInterface.appendChild(questionElement);
+  userInterface.appendChild(scoreElement );
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
    
@@ -60,7 +64,9 @@ const selectAnswer = (selectElement) => {
   // if the answer is correct, add 1 to the score.
   if(answerIsCorrect(currentQuestion)){
     quizData.currentScore++;
-    
+
+    document.getElementById('show-score').innerText = `Your result is ${quizData.currentScore}`
+
   }else{
     // if the answer is wrong, add .wrong to the selected answer
     selectElement.classList.add('wrong');
@@ -103,3 +109,4 @@ const nextQuestion = () => {
   
   initQuestionPage();
 }
+
