@@ -15,5 +15,5 @@ export const initWelcomePage = () => {
 };
 
 const startQuiz = () => {
-  initQuestionPage();
+  initQuestionPage(); 
 };
