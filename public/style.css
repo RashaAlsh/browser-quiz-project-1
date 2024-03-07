@@ -1,3 +1,6 @@
+*{box-sizing: border-box;}
+
+
 .centered {
   position: fixed;
   top: 50%;
@@ -12,7 +15,8 @@
   overflow: auto;
 }
 
-ul {
+ul { padding: 0;
+  margin: 0;
   list-style: none;
 }
 
@@ -23,3 +27,131 @@ ul {
 .wrong{
   background-color: red;
 }
+
+
+
+body {background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+}
+#user-interface  {
+  
+font-family: "Nunito", sans-serif;
+ 
+}
+#welcome-title {  padding-top:25px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.block_white  {
+width: 500px; 
+height: 80vh; background-color: white;
+border-radius: 10px;
+box-shadow: 0px  3px 10px rgba(0, 0, 0, 0.313);
+animation: image-slide 1s ease-in-out;
+
+} 
+
+.question_block_white { 
+max-width: 900px;
+background-color: white;
+padding: 15px;
+border-radius: 15px;
+
+
+} 
+
+
+/*quesition */
+
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /*fr - fraction*/
+  grid-gap: 10px; 
+  margin: auto; }
+
+li { 
+ /* display:flex;
+  flex-direction: column; */
+ justify-content: center;
+ /* animation: fade-in 1.7s ease-in-out; */
+  width:380px;
+  padding: 20px;
+  border: 1px solid rgb(43, 43, 43);
+  border-radius: 20px;
+ /* box-shadow: 0px 3px 0px 0px black;*/
+  }
+
+
+  li:nth-child(1) {
+    animation-delay: 1.5s;
+  }
+  li:nth-child(2) {
+    animation-delay: 2s;
+  }
+  li:nth-child(3) {
+    animation-delay: 2.5s;
+  }
+  li:nth-child(4) {
+    animation-delay: 3s;
+  }
+
+  li:hover { 
+    background-color: #f2efd4;   
+    
+  /*  transform: translateY(4px);
+box-shadow: 0px 1px 0px 0px black; */ }
+  
+.non-visible { opacity:0;}
+
+
+
+
+@keyframes image-slide {
+  0% {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+#start-quiz-button { 
+  background-color: rgb(40, 40, 40);
+  color:rgb(237, 237, 237);
+  border: none;
+	padding: 10px 30px;
+	cursor: pointer;
+	outline: inherit; font-size: 1.5em; 
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+#start-quiz-button:hover{background-color: rgb(86, 86, 86);
+color:rgb(244, 244, 244);}
+
+#next-question-button { 
+  background-color: aliceblue;
+  color:black;
+  border: none;
+	padding: 10px 20px;
+  margin: 30px 0px 20px 0px;
+	cursor: pointer;
+	outline: inherit; font-size: 1em; 
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+
+
+}
+#next-question-button:hover {
+background-color: rgb(34, 34, 34);
+color: white;}
+
+button {margin:0; padding:0;}
