@@ -60,10 +60,9 @@ animation: image-slide 1s ease-in-out;
 .question_block_white { 
 max-width: 900px;
 background-color: white;
-padding: 15px;
+padding: 15px 30px;
 border-radius: 15px;
-
-
+box-shadow: 0px  3px 10px rgba(0, 0, 0, 0.313);
 } 
 
 
@@ -74,6 +73,8 @@ ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /*fr - fraction*/
   grid-gap: 10px; 
+  column-gap: 24px;
+  padding-top: 30px;
   margin: auto; }
 
 li { 
@@ -85,6 +86,7 @@ li {
   padding: 20px;
   border: 1px solid rgb(43, 43, 43);
   border-radius: 20px;
+  cursor: pointer;
  /* box-shadow: 0px 3px 0px 0px black;*/
   }
 
@@ -103,7 +105,8 @@ li {
   }
 
   li:hover { 
-    background-color: #f2efd4;   
+    background-color: black;
+    color: white;   
     
   /*  transform: translateY(4px);
 box-shadow: 0px 1px 0px 0px black; */ }
