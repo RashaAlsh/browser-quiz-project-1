@@ -2,32 +2,38 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+  SKIP_QUESTION_BUTTON_ID
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { createScoreElement } from '../views/scoreView.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-
+ 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-
+ 
   const questionElement = createQuestionElement(currentQuestion.text);
 
+  const scoreElement = createScoreElement(quizData.currentScore)
+
   userInterface.appendChild(questionElement);
+  userInterface.appendChild(scoreElement );
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-  
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
   }
-
+  
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+
+  document.getElementById(SKIP_QUESTION_BUTTON_ID).addEventListener('click', skipQuestion);
 
     // adds event listeners to all the answer elements. so user can select an answer
   for (const answerElement of answersListElement.children) {
@@ -52,13 +58,15 @@ const selectAnswer = (selectElement) => {
   currentQuestion.selected = selectElement.innerHTML.split(":")[0].trim();
   
   // Remove the click events listeners since user answered already and we showed the answer
-  for (const answerElement of selectElement.parentElement.children) {
-    answerElement.removeEventListener('click', selectEventHandler);     
-  }
+
+  removeAnswerClickEvents(selectElement.parentElement);
 
   // if the answer is correct, add 1 to the score.
   if(answerIsCorrect(currentQuestion)){
     quizData.currentScore++;
+
+    document.getElementById('show-score').innerText = `Your result is ${quizData.currentScore}`
+
   }else{
     // if the answer is wrong, add .wrong to the selected answer
     selectElement.classList.add('wrong');
@@ -68,6 +76,14 @@ const selectAnswer = (selectElement) => {
   // This is not in the if statement because we want to show the correct answer even if the user selected the wrong answer
   showCorrectAnswer(currentQuestion); 
 }
+
+const removeAnswerClickEvents = (answersListElement) => {
+  for (const answerElement of answersListElement.children) {
+    answerElement.removeEventListener('click', selectEventHandler);
+  }
+
+}
+
 
 const answerIsCorrect = (question) => {
   return question.selected === question.correct;
@@ -83,8 +99,14 @@ const showCorrectAnswer = (question) => {
   }
 }
 
+const skipQuestion = () => {
+  showCorrectAnswer(quizData.questions[quizData.currentQuestionIndex]);
+  removeAnswerClickEvents(document.getElementById(ANSWERS_LIST_ID));
+}
+
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-
+  
   initQuestionPage();
 }
+
