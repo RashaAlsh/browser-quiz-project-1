@@ -2,93 +2,89 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
-  SKIP_QUESTION_BUTTON_ID
+  SKIP_QUESTION_BUTTON_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScoreElement } from '../views/scoreView.js';
+import { initFinalPage } from './finalPage.js';
+import { progress } from '../localStorage.js';
 
-export const initQuestionPage = () => {
+export const initQuestionPage = (isContinue = false) => {
+  if (isContinue === true) {
+    progress.loadIndex();
+    progress.loadScore();
+  }
+
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
- 
+
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
- 
+
   const questionElement = createQuestionElement(currentQuestion.text);
 
-  const scoreElement = createScoreElement(quizData.currentScore)
-
+  const scoreElement = createScoreElement(
+    quizData.currentScore,
+    quizData.questions.length
+  );
+  userInterface.appendChild(scoreElement);
   userInterface.appendChild(questionElement);
-  userInterface.appendChild(scoreElement );
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
     answersListElement.appendChild(answerElement);
   }
-  
+
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
 
-  document.getElementById(SKIP_QUESTION_BUTTON_ID).addEventListener('click', skipQuestion);
+  document
+    .getElementById(SKIP_QUESTION_BUTTON_ID)
+    .addEventListener('click', skipQuestion);
 
-    // adds event listeners to all the answer elements. so user can select an answer
+  // adds event listeners to all the answer elements. so user can select an answer
   for (const answerElement of answersListElement.children) {
     answerElement.addEventListener('click', selectEventHandler);
-  }  
-}
+  }
+};
 
-// If I add events with arrow functions or declare functions in "addEventListener" I can not use removeEventListener and I  can't remove them later. This is because there is no reference to the function. my creating a function and passing it to the event listener, I can remove it later.
-function selectEventHandler(){
+function selectEventHandler() {
   selectAnswer(this);
 }
 
-// Answer selecting process
-// Selects the answer and shows the correct answer
 const selectAnswer = (selectElement) => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-  
-  // Modify the data. there is a selected property in the question object. we want to store the selected answer there. 
-  // This is important for checking if the answer is correct later 
-  // and for showing the correct answer 
-  // and calculating the score
-  currentQuestion.selected = selectElement.innerHTML.split(":")[0].trim();
-  
-  // Remove the click events listeners since user answered already and we showed the answer
 
-  removeAnswerClickEvents(selectElement.parentElement);
+  currentQuestion.selected = selectElement.innerHTML.split(':')[0].trim();
 
-  // if the answer is correct, add 1 to the score.
-  if(answerIsCorrect(currentQuestion)){
+  if (answerIsCorrect(currentQuestion)) {
     quizData.currentScore++;
 
-    document.getElementById('show-score').innerText = `Your result is ${quizData.currentScore}`
-
-  }else{
-    // if the answer is wrong, add .wrong to the selected answer
+    document.getElementById(
+      'show-score'
+    ).innerText = `Your result is ${quizData.currentScore}`;
+  } else {
     selectElement.classList.add('wrong');
   }
 
-  // add .correct to the correct answer.
-  // This is not in the if statement because we want to show the correct answer even if the user selected the wrong answer
-  showCorrectAnswer(currentQuestion); 
-}
+  removeAnswerClickEvents(selectElement.parentElement);
+  showCorrectAnswer(currentQuestion);
+};
 
 const removeAnswerClickEvents = (answersListElement) => {
   for (const answerElement of answersListElement.children) {
     answerElement.removeEventListener('click', selectEventHandler);
+    answerElement.style.pointerEvents = 'none';
   }
-
-}
-
+};
 
 const answerIsCorrect = (question) => {
   return question.selected === question.correct;
-}
+};
 
-// color the correct answer to green
 const showCorrectAnswer = (question) => {
   const answersList = document.getElementById(ANSWERS_LIST_ID);
   for (const answerElement of answersList.children) {
@@ -96,15 +92,21 @@ const showCorrectAnswer = (question) => {
       answerElement.classList.add('correct');
     }
   }
-}
+};
 
 const skipQuestion = () => {
   showCorrectAnswer(quizData.questions[quizData.currentQuestionIndex]);
   removeAnswerClickEvents(document.getElementById(ANSWERS_LIST_ID));
-}
+};
 
 const nextQuestion = () => {
+  progress.saveIndex();
+  progress.saveScore();
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  
-  initQuestionPage();
-}
+
+  if (quizData.currentQuestionIndex === quizData.questions.length) {
+    initFinalPage(quizData.currentScore, quizData.questions.length);
+  } else {
+    initQuestionPage();
+  }
+};

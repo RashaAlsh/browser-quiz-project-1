@@ -25,11 +25,15 @@
 }
 
 body {
-  background-image: linear-gradient(95.2deg, rgba(173, 252, 234, 1) 26.8%, rgba(192, 229, 246, 1) 64%);
+  background-image: linear-gradient(
+    95.2deg,
+    rgba(173, 252, 234, 1) 26.8%,
+    rgba(192, 229, 246, 1) 64%
+  );
 }
 
 #user-interface {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 #welcome-title {
@@ -84,6 +88,10 @@ li:hover {
   color: white;
 }
 
+li::first-letter {
+  opacity: 0;
+  text-transform: uppercase;
+}
 
 @keyframes image-slide {
   0% {
@@ -101,8 +109,36 @@ p {
   background-color: green;
 }
 
+@-webkit-keyframes blackWhite {
+  0% {
+    background-color: #ccb4f5;
+  }
+  25% {
+    background-color: #ccb4f5;
+  }
+  26% {
+    background-color: #b4f5ed;
+  }
+  50% {
+    background-color: #b4f5ed;
+  }
+  51% {
+    background-color: #f5b4bc;
+  }
+  75% {
+    background-color: #f5b4bc;
+  }
+  76% {
+    background-color: #dcf5b4;
+  }
+  100% {
+    background-color: #dcf5b4;
+  }
+}
 
-#start-quiz-button {
+#start-quiz-button,
+#continue-quiz-button,
+#restart-quiz-button {
   color: rgb(0, 0, 0);
   border: 2px solid black;
   padding: 10px 20px;
@@ -111,13 +147,17 @@ p {
   border-radius: 15px;
   transition: background-color 0.6s;
   box-shadow: 0px 3px 0px 0px black;
+  -webkit-animation-name: blackWhite;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 1.2s;
 }
 
-#start-quiz-button:hover {
+#start-quiz-button:hover,
+#continue-quiz-button:hover,
+#restart-quiz-button:hover {
   transform: translateY(3px);
   box-shadow: 0px 1px 0px 0px black;
 }
-
 
 #next-question-button {
   background-color: rgb(70, 70, 237);
@@ -134,7 +174,6 @@ p {
 
 #next-question-button:hover {
   background-color: blue;
-  ;
   color: white;
 }
 
@@ -154,7 +193,7 @@ p {
 }
 
 #skip-question-button:hover {
-  background-color: rgb(48, 48, 48)
+  background-color: rgb(48, 48, 48);
 }
 
 li:nth-child(2) {

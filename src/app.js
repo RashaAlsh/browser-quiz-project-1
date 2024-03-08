@@ -1,10 +1,15 @@
 import { quizData } from './data.js';
 import { initWelcomePage } from './pages/welcomePage.js';
+import { progress } from './localStorage.js';
 
 const loadApp = () => {
-  quizData.currentQuestionIndex = 0;
+  progress.loadIndex();
 
-  initWelcomePage();
+  if (quizData.currentQuestionIndex === 0) {
+    initWelcomePage();
+  } else {
+    initWelcomePage(true);
+  }
 };
 
 window.addEventListener('load', loadApp);

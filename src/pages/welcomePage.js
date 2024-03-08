@@ -1,47 +1,35 @@
-import { START_QUIZ_BUTTON_ID, USER_INTERFACE_ID } from '../constants.js';
+import {
+  START_QUIZ_BUTTON_ID,
+  USER_INTERFACE_ID,
+  CONTINUE_QUIZ_BUTTON_ID,
+} from '../constants.js';
 import { createWelcomeElement } from '../views/welcomeView.js';
 import { initQuestionPage } from './questionPage.js';
+import { progress } from '../localStorage.js';
 
-const userInterface = document.getElementById(USER_INTERFACE_ID);
-
-
-   
-let colors = ["#ccb4f5", "#b4f5ed", "#f5b4bc", "#dcf5b4"]; 
-// let colors = ["#b4f5ed", "#dcf5b4"]; 
- let colorIndex = 1; 
-
-var intervalID = setInterval (() => {  
-   document.getElementById('start-quiz-button').style.backgroundColor = colors[colorIndex]; 
-   colorIndex = (colorIndex + 1) % colors.length; 
- }, 300); 
-
-export const initWelcomePage = () => {
+export const initWelcomePage = (canContinue = false) => {
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-  const welcomeElement = createWelcomeElement();
+  const welcomeElement = createWelcomeElement(canContinue);
   userInterface.appendChild(welcomeElement);
-
 
   document
     .getElementById(START_QUIZ_BUTTON_ID)
     .addEventListener('click', startQuiz);
 
-    
-    
-    
+  if (document.getElementById(CONTINUE_QUIZ_BUTTON_ID)) {
+    document
+      .getElementById(CONTINUE_QUIZ_BUTTON_ID)
+      .addEventListener('click', continueQuiz);
+  }
 };
-
-function saveName() {
-  let usernameValue = document.querySelector('input[name="userName"]').value;
-  localStorage.setItem('userName', usernameValue);
-}
-
 
 const startQuiz = () => {
-  saveName();
-  initQuestionPage(); 
-  clearInterval(intervalID);
+  progress.resetProgress();
+  progress.saveUserName(document.querySelector('input[name="userName"]').value);
+  initQuestionPage();
 };
 
-
-
-
+const continueQuiz = () => {
+  initQuestionPage(true);
+};

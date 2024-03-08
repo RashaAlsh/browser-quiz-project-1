@@ -10,17 +10,17 @@
 */
 
 export const quizData = {
-  currentScore :0 , 
+  currentScore: 0,
   currentQuestionIndex: 0,
 
   questions: [
     {
       text: ' What is the capital of Australia?',
       answers: {
-        a : 'Sydney',
+        a: 'Sydney',
         b: 'Melbourne',
-        c : 'Canberra',
-        d : 'Brisbane',
+        c: 'Canberra',
+        d: 'Brisbane',
       },
       correct: 'c',
       selected: null,
@@ -41,8 +41,8 @@ export const quizData = {
       answers: {
         a: 'Sahara Desert',
         b: 'Gobi Desert',
-        c : 'Arabian Desert',
-        d : 'Antarctica',
+        c: 'Arabian Desert',
+        d: 'Antarctica',
       },
       correct: 'a',
       selected: null,

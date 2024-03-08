@@ -1,10 +1,10 @@
-import { START_QUIZ_BUTTON_ID } from '../constants.js';
+import { START_QUIZ_BUTTON_ID, CONTINUE_QUIZ_BUTTON_ID } from '../constants.js';
 
 /**
  * Create the welcome screen
  * @returns {Element}
  */
-export const createWelcomeElement = () => {
+export const createWelcomeElement = (canContinue = false) => {
   const element = document.createElement('div');
   const welcomeTitle = 'welcome-title';
   element.classList.add('block_white');
@@ -22,10 +22,14 @@ export const createWelcomeElement = () => {
       <br>
 
     <button id="${START_QUIZ_BUTTON_ID}">START</button>
+
+    ${
+      canContinue ? `<button id="${CONTINUE_QUIZ_BUTTON_ID}">CONTINUE</button>` : ''
+    }
+    
+
   `;
 
 
   return element;
 };
-
-//const title = `Good job, ${localStorage.getItem('userName') || 'Anonymous'}`;

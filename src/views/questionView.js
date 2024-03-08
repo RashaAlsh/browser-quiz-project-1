@@ -8,7 +8,6 @@ export const createQuestionElement = (question) => {
   const element = document.createElement('div');
   element.classList.add('question_block_white');
 
-
   // I use String.raw just to get fancy colors for the HTML in VS Code.
   element.innerHTML = String.raw`
     <h1>${question}</h1>
@@ -23,7 +22,6 @@ export const createQuestionElement = (question) => {
     <button id="${SKIP_QUESTION_BUTTON_ID}">
     Skip
   </button>
-
   `;
 
   return element;
