@@ -45,7 +45,6 @@ export const initQuestionPage = (isContinue = false) => {
     .getElementById(SKIP_QUESTION_BUTTON_ID)
     .addEventListener('click', skipQuestion);
 
-  // adds event listeners to all the answer elements. so user can select an answer
   for (const answerElement of answersListElement.children) {
     answerElement.addEventListener('click', selectEventHandler);
   }
@@ -65,7 +64,7 @@ const selectAnswer = (selectElement) => {
 
     document.getElementById(
       'show-score'
-    ).innerText = `Your result is ${quizData.currentScore}`;
+    ).innerText = `Your result is ${quizData.currentScore} / ${quizData.questions.length}`;
   } else {
     selectElement.classList.add('wrong');
   }
