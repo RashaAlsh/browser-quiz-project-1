@@ -16,47 +16,114 @@ export const quizData = {
 
   questions: [
     {
-      text: 'What are the different ways to declare a JS variable?',
+      text: ' What is the capital of Australia?',
       answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
+        a : 'Sydney',
+        b: 'Melbourne',
+        c : 'Canberra',
+        d : 'Brisbane',
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
     },
     {
-      text: 'What does `typeof` do?',
+      text: 'Which country is known for the Taj Mahal?',
       answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
+        a: 'India',
+        b: 'Egypt',
+        c: 'Turkey',
+        d: 'China',
+      },
+      correct: 'a',
+      selected: null,
+    },
+    {
+      text: 'What is the largest desert in the world?',
+      answers: {
+        a: 'Sahara Desert',
+        b: 'Gobi Desert',
+        c : 'Arabian Desert',
+        d : 'Antarctica',
+      },
+      correct: 'a',
+      selected: null,
+    },
+    {
+      text: 'Which country is known as the Land of the Rising Sun?',
+      answers: {
+        a: 'China',
+        b: 'Japan',
+        c: 'Korea',
+        d: 'Thailand',
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
     },
-    // Add more questions here
+    {
+      text: 'What is the largest continent by land area?',
+      answers: {
+        a: 'Europe',
+        b: 'Asia',
+        c: 'Africa',
+        d: 'North America',
+      },
+      correct: 'b',
+      selected: null,
+    },
+    {
+      text: 'Which is the largest ocean on Earth?',
+      answers: {
+        a: 'Atlantic Ocean',
+        b: 'Indian Ocean',
+        c: 'Pacific Ocean',
+        d: 'Southern Ocean',
+      },
+      correct: 'a',
+      selected: null,
+    },
+    {
+      text: 'Which country is known for its kangaroos and koalas?',
+      answers: {
+        a: 'New Zealand',
+        b: 'Australia',
+        c: 'South Africa',
+        d: ' Brazil',
+      },
+      correct: 'b',
+      selected: null,
+    },
+    {
+      text: 'Which country is famous for its tulips and windmills?',
+      answers: {
+        a: 'Norway',
+        b: 'Netherlands',
+        c: 'Belgium',
+        d: 'Denmark',
+      },
+      correct: 'b',
+      selected: null,
+    },
+    {
+      text: 'Which country is known for its maple syrup and hockey?',
+      answers: {
+        a: 'United States',
+        b: 'United Kingdom',
+        c: 'Canada',
+        d: 'Germany',
+      },
+      correct: 'c',
+      selected: null,
+    },
+    {
+      text: 'Which country is famous for its tango dance and beef?',
+      answers: {
+        a: 'Brazil',
+        b: 'Argentina',
+        c: 'Chile',
+        d: 'Peru',
+      },
+      correct: 'b',
+      selected: null,
+    },
   ],
 };
