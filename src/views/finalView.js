@@ -3,7 +3,7 @@ import { RESTART_QUIZ_BUTTON_ID } from '../constants.js';
 export const createFinalElement = (score, maxScore, userName = 'Guest') => {
   const element = document.createElement('div');
   element.classList.add('last-page-div');
-
+  
   //different text depending on a score
   if (score === 0) {
     element.innerText = `Better luck next time, ${userName}. You earned ${score} points out of ${maxScore} points`;

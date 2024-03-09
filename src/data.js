@@ -15,7 +15,7 @@ export const quizData = {
 
   questions: [
     {
-      text: ' What is the capital of Australia?',
+      text: '1 - What is the capital of Australia?',
       answers: {
         a: 'Sydney',
         b: 'Melbourne',
@@ -26,7 +26,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which country is known for the Taj Mahal?',
+      text: '2 - Which country is known for the Taj Mahal?',
       answers: {
         a: 'India',
         b: 'Egypt',
@@ -37,7 +37,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'What is the largest desert in the world?',
+      text: '3 - What is the largest desert in the world?',
       answers: {
         a: 'Sahara Desert',
         b: 'Gobi Desert',
@@ -48,7 +48,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which country is known as the Land of the Rising Sun?',
+      text: '4 - Which country is known as the Land of the Rising Sun?',
       answers: {
         a: 'China',
         b: 'Japan',
@@ -59,7 +59,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'What is the largest continent by land area?',
+      text: '5 - What is the largest continent by land area?',
       answers: {
         a: 'Europe',
         b: 'Asia',
@@ -70,7 +70,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which is the largest ocean on Earth?',
+      text: '6 - Which is the largest ocean on Earth?',
       answers: {
         a: 'Atlantic Ocean',
         b: 'Indian Ocean',
@@ -81,7 +81,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which country is known for its kangaroos and koalas?',
+      text: '7 - Which country is known for its kangaroos and koalas?',
       answers: {
         a: 'New Zealand',
         b: 'Australia',
@@ -92,7 +92,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which country is famous for its tulips and windmills?',
+      text: '8 - Which country is famous for its tulips and windmills?',
       answers: {
         a: 'Norway',
         b: 'Netherlands',
@@ -103,7 +103,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which country is known for its maple syrup and hockey?',
+      text: '9 - Which country is known for its maple syrup and hockey?',
       answers: {
         a: 'United States',
         b: 'United Kingdom',
@@ -114,7 +114,7 @@ export const quizData = {
       selected: null,
     },
     {
-      text: 'Which country is famous for its tango dance and beef?',
+      text: '10 - Which country is famous for its tango dance and beef?',
       answers: {
         a: 'Brazil',
         b: 'Argentina',

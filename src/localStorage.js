@@ -2,7 +2,7 @@ import { quizData } from './data.js';
 
 export const progress = {
   saveIndex: () => {
-    localStorage.setItem('questionIndex', quizData.currentQuestionIndex);
+    localStorage.setItem('questionIndex', quizData.currentQuestionIndex + 1);
   },
   saveScore: () => {
     localStorage.setItem('score', quizData.currentScore);

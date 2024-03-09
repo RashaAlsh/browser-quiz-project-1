@@ -71,6 +71,8 @@ const selectAnswer = (selectElement) => {
 
   removeAnswerClickEvents(selectElement.parentElement);
   showCorrectAnswer(currentQuestion);
+  progress.saveIndex();
+  progress.saveScore();
 };
 
 const removeAnswerClickEvents = (answersListElement) => {
@@ -99,8 +101,7 @@ const skipQuestion = () => {
 };
 
 const nextQuestion = () => {
-  progress.saveIndex();
-  progress.saveScore();
+  
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   if (quizData.currentQuestionIndex === quizData.questions.length) {

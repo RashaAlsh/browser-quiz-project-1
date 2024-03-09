@@ -26,7 +26,10 @@ export const initWelcomePage = (canContinue = false) => {
 
 const startQuiz = () => {
   progress.resetProgress();
-  progress.saveUserName(document.querySelector('input[name="userName"]').value);
+
+  const userName = document.querySelector('input[name="userName"]').value;
+  userName === "" ? progress.saveUserName("Guest") : progress.saveUserName(userName)
+  
   initQuestionPage();
 };
 
