@@ -1,33 +1,35 @@
-import { START_QUIZ_BUTTON_ID, USER_INTERFACE_ID } from '../constants.js';
+import {
+  START_QUIZ_BUTTON_ID,
+  USER_INTERFACE_ID,
+  CONTINUE_QUIZ_BUTTON_ID,
+} from '../constants.js';
 import { createWelcomeElement } from '../views/welcomeView.js';
 import { initQuestionPage } from './questionPage.js';
+import { progress } from '../localStorage.js';
 
-export const initWelcomePage = () => {
+export const initWelcomePage = (canContinue = false) => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-
-  const welcomeElement = createWelcomeElement();
+  const welcomeElement = createWelcomeElement(canContinue);
   userInterface.appendChild(welcomeElement);
 
   document
     .getElementById(START_QUIZ_BUTTON_ID)
     .addEventListener('click', startQuiz);
+
+  if (document.getElementById(CONTINUE_QUIZ_BUTTON_ID)) {
+    document
+      .getElementById(CONTINUE_QUIZ_BUTTON_ID)
+      .addEventListener('click', continueQuiz);
+  }
 };
 
 const startQuiz = () => {
-  initQuestionPage(); 
+  progress.resetProgress();
+  progress.saveUserName(document.querySelector('input[name="userName"]').value);
+  initQuestionPage();
 };
 
-//start quiz button animation
-
-export function switchColor() {
-  let colors = ["#ccb4f5", "#b4f5ed", "#f5b4bc", "#dcf5b4"]; 
- // let colors = ["#b4f5ed", "#dcf5b4"]; 
-  let colorIndex = 0; 
-  setInterval(function() {
-    document.getElementById('start-quiz-button').style.backgroundColor = colors[colorIndex]; 
-    colorIndex = (colorIndex + 1) % colors.length; 
-  }, 300); 
-}
-
-switchColor(); 
+const continueQuiz = () => {
+  initQuestionPage(true);
+};
