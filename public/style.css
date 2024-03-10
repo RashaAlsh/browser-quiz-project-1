@@ -24,13 +24,6 @@
   background-color: red;
 }
 
-.last-page-div{
-  font-size: 23px;
-  color: rgb(48, 47, 47);
-  text-shadow: 0 0 10px;
-  font-weight: bold;
-}
-
 body {
   background-image: linear-gradient(
     95.2deg,
@@ -49,11 +42,16 @@ body {
 
 h1 {
   padding-top: 20px;
+  margin: 3% 10% 0px;
+  
 }
 
 .block_white {
-  width: 500px;
+
+  width: 90vw;
+ /*max-width: 500px;*/
   height: 50vh;
+  min-height:250px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.313);
@@ -61,29 +59,33 @@ h1 {
 }
 
 .question_block_white {
-  width: 900px;
+  width:90vw;
+/*  max-width:900px; */
   background-color: white;
   padding: 15px 30px;
   border-radius: 15px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.313);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 ul {
   list-style: none;
-  width: 800px;
+  width: 90%;
   padding: 60px 0px 30px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 10px;
-  column-gap: 24px;
+  column-gap: 30px;
   margin: auto;
+  align-items: center;
 }
 
 li {
-  justify-content: center;
-  text-align: center;
-  width: 380px;
-  padding: 20px 10px;
+
+  
+  padding: 4% 10px;
   border: 1px solid rgb(43, 43, 43);
   border-radius: 20px;
   cursor: pointer;
@@ -93,11 +95,6 @@ li {
 li:hover {
   background-color: black;
   color: white;
-}
-
-li::first-letter {
-  opacity: 0;
-  text-transform: uppercase;
 }
 
 @keyframes image-slide {
@@ -112,9 +109,6 @@ li::first-letter {
   }
 }
 
-p {
-  background-color: green;
-}
 
 @keyframes switchColor {
   0% {
@@ -149,6 +143,7 @@ p {
   color: rgb(0, 0, 0);
   border: 2px solid black;
   padding: 10px 20px;
+  margin-bottom: 10px;
   cursor: pointer;
   font-size: 1.5em;
   border-radius: 15px;
@@ -171,12 +166,13 @@ p {
   color: white;
   border: none;
   padding: 10px 20px;
-  margin: 30px 0px 20px 0px;
+  margin: 1.5vh 0 1vh 0;
   cursor: pointer;
   outline: inherit;
   font-size: 1em;
   border-radius: 20px;
-  transition: background-color 0.1s ease;
+  transition: background-color 0.3s ease;
+  
 }
 
 #next-question-button:hover {
@@ -185,40 +181,21 @@ p {
 }
 
 #skip-question-button {
-  display: block;
   border: none;
   padding: 12px 15px;
-  margin-left: 20px;
   background-color: rgb(0, 0, 0);
   color: white;
   cursor: pointer;
   border-radius: 20px;
   transition: background-color 0.3s ease;
-  margin-bottom: 15px;
-  margin-top: 10px;
-  animation: appear 2s linear forwards;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  display: block;
 }
+
 
 #skip-question-button:hover {
   background-color: rgb(48, 48, 48);
-}
-
-li:nth-child(2) {
-  animation-delay: 0.8s;
-}
-
-li:nth-child(3) {
-  animation-delay: 1.6s;
-}
-
-li:nth-child(4) {
-  animation-delay: 2.4s;
-}
-
-@keyframes appear {
-  100% {
-    opacity: 100%;
-  }
 }
 
 .name-label {
@@ -239,4 +216,29 @@ li:nth-child(4) {
   outline: none;
   background: none;
   margin-bottom: 20px;
+}
+
+
+li::first-letter {
+  opacity: 0;
+}
+@media (min-width: 768px) {
+
+.block_white {
+  width: 500px;
+}
+.question_block_white {
+  width: 85vw;
+  max-width: 900px;
+}
+}
+
+.last-page-div { 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.gif-style {
+  width: 200px;
+  margin: 20px 0px;
 }
