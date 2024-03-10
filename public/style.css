@@ -43,11 +43,9 @@ body {
 h1 {
   padding-top: 20px;
   margin: 3% 10% 0px;
-  
 }
 
-.block_white {
-
+.block_white, .last-page-div{
   width: 90vw;
  /*max-width: 500px;*/
   height: 50vh;
@@ -82,9 +80,7 @@ ul {
   align-items: center;
 }
 
-li {
-
-  
+li { 
   padding: 4% 10px;
   border: 1px solid rgb(43, 43, 43);
   border-radius: 20px;
@@ -224,7 +220,7 @@ li::first-letter {
 }
 @media (min-width: 768px) {
 
-.block_white {
+.block_white,.last-page-div {
   width: 500px;
 }
 .question_block_white {
